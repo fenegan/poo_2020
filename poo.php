@@ -4,7 +4,6 @@ require_once('Warrior.php');
 require_once('Mage.php');
 require_once('Rogue.php');
 
-//$a = new Rogue();
 $a = new Warrior();
 $b = new Mage();
 $c = new Rogue();

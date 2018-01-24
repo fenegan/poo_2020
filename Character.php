@@ -1,6 +1,6 @@
 <?php
 
-class Character
+abstract class Character
 {
     private static $xpPerLevel = 100;
 
@@ -27,6 +27,8 @@ class Character
         $this->setIntelligence(10);
         $this->setAgility(10);
     }
+    
+    public abstract function getDamage();
     
     public function attack(Character $enemy)
     {
@@ -92,15 +94,10 @@ class Character
         //     return false;
     }
     
-    public function log($text)
+    protected function log($text)
     {
         if ($this->getDebug())
             echo $this->getFullName() . ' : ' . $text . '<br>';
-    }
-    
-    public function getDamage()
-    {
-        return $this->getLevel() * 2;
     }
     
     public function setHp($hp)

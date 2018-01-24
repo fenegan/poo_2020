@@ -29,12 +29,12 @@ class Mage extends Character
             parent::takeDamage($damage, $enemy);
     }
     
-    public function setShield($shield)
+    private function setShield($shield)
     {
         $this->shield = $shield > 0 ? $shield : 0;
     }
     
-    public function getShield()
+    private function getShield()
     {
         return $this->shield;
     }
