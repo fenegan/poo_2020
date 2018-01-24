@@ -18,7 +18,7 @@ class Mage extends Character
         return $this->getIntelligence() * $this->getLevel();
     }
     
-    public function takeDamage($damage)
+    public function takeDamage($damage, Character $enemy = null)
     {
         if ($this->getShield() > 0)
         {
@@ -26,9 +26,7 @@ class Mage extends Character
             $this->log("Absorbs ".$damage.' damage, '.$this->getShield().' shield left');
         }
         else
-        {
             parent::takeDamage($damage);
-        }
     }
     
     public function setShield($shield)

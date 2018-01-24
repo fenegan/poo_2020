@@ -4,25 +4,28 @@ require_once('Warrior.php');
 require_once('Mage.php');
 require_once('Rogue.php');
 
+//$a = new Rogue();
 $a = new Warrior();
 $b = new Mage();
 $c = new Rogue();
 
 $a->setName('newB');
-$a->setLevel(35);
+$a->setLevel(1);
 
 $b->setName('xXxRoXorxXx');
 $b->setLevel(25);
 
 $c->setName('Billy');
+$c->setLevel(1);
 
 //$a->attack($b);
 //$b->attack($c);
 //$c->attack($a);
 
-while ($c->isAlive())
+while ($c->isAlive() && $a->isAlive())
 {
-    $c->attack($c);
+    $a->attack($c);
+    $c->attack($a);
 }
 
 // echo '<pre>';

@@ -35,7 +35,7 @@ class Character
             if ($enemy->isAlive())
             {
                 $this->log('Attacks '.$enemy->getName());
-                $enemy->takeDamage($this->getDamage());
+                $enemy->takeDamage($this->getDamage(), $this);
                 if (!$enemy->isAlive())
                     $this->addXp($enemy->getXpOnDeath());
             }
@@ -46,7 +46,7 @@ class Character
             $this->log('Tries to attack '.$enemy->getName() . ' but is already dead');
     }
     
-    public function takeDamage($damage)
+    public function takeDamage($damage, Character $enemy = null)
     {
         $this->setHp($this->getHp() - $damage);
         $this->log("Takes ".$damage.' damage, '.$this->getHp().' hp left');
