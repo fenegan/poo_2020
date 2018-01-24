@@ -9,12 +9,7 @@ $b = new Mage();
 $c = new Rogue();
 
 $a->setName('newB');
-
-$b->setHp(1000);
-$b->setLevel(50);
 $b->setName('xXxRoXorxXx');
-
-$c->setLevel(100);
 $c->setName('Billy');
 
 $a->attack($b);

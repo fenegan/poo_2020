@@ -2,8 +2,11 @@
 
 class Character
 {
+    private static $xpPerLevel = 100;
+
     private $hp;
     private $level;
+    private $xp;
     private $name;
     
     private $strength;
@@ -17,7 +20,8 @@ class Character
         $this->setDebug(true);
         
         $this->setLevel(1);
-        $this->setHp(10);
+        $this->setXp(0);
+        $this->setHp(100);
         $this->setName('[NONAME]');
         $this->setStrength(10);
         $this->setIntelligence(10);
@@ -26,19 +30,63 @@ class Character
     
     public function attack(Character $enemy)
     {
-        $this->log('Attacks '.$enemy->getName());
-        $enemy->takeDamage($this->getDamage());
+        if ($this->isAlive())
+        {
+            if ($enemy->isAlive())
+            {
+                $this->log('Attacks '.$enemy->getName());
+                $enemy->takeDamage($this->getDamage());
+                if (!$enemy->isAlive())
+                    $this->addXp($enemy->getXpOnDeath());
+            }
+            else
+                $this->log("Attacks an already dead enemy (".$enemy->getName().")");
+        }
+        else
+            $this->log('Tries to attack '.$enemy->getName() . ' but is already dead');
     }
     
     public function takeDamage($damage)
     {
         $this->setHp($this->getHp() - $damage);
-        $this->log("Takes ".$damage.' dammage, '.$this->getHp().' hp left');
+        $this->log("Takes ".$damage.' damage, '.$this->getHp().' hp left');
     }
     
     public function getFullName()
     {
         return $this->getName() . ' the ' . get_class($this);
+    }
+    
+    public function addXp($xp)
+    {
+        $this->setXp($this->getXp() + $xp);
+        while ($this->getXp() >= self::$xpPerLevel)
+        {
+            $this->gainLevel();
+            $this->setXp($this->getXp() - self::$xpPerLevel);
+        }
+    }
+    
+    public function gainLevel()
+    {
+        $this->log('Gained a level ! Now level '.$this->getLevel());
+        $this->setLevel($this->getLevel() + 1);
+    }
+    
+    public function getXpOnDeath()
+    {
+        $this->getLevel() * 10;
+    }
+    
+    public function isAlive()
+    {
+        return $this->getHp() > 0;
+        
+        // Alternative syntax :
+        // if ($this->getHp() > 0)
+        //     return true;
+        // else
+        //     return false;
     }
     
     public function log($text)
@@ -70,6 +118,16 @@ class Character
     public function getLevel()
     {
         return $this->level;
+    }
+    
+    public function setXp($xp)
+    {
+        $this->xp = $xp > 0 ? $xp : 0;
+    }
+    
+    public function getXp()
+    {
+        return $this->xp;
     }
     
     public function setName($name)
