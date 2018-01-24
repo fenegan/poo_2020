@@ -10,8 +10,12 @@ class Character
     private $intelligence;
     private $agility;
     
+    private $debug;
+    
     public function __construct()
     {
+        $this->setDebug(true);
+        
         $this->setLevel(1);
         $this->setHp(10);
         $this->setName('[NONAME]');
@@ -22,12 +26,25 @@ class Character
     
     public function attack(Character $enemy)
     {
+        $this->log('Attacks '.$enemy->getName());
         $enemy->takeDamage($this->getDamage());
     }
     
     public function takeDamage($damage)
     {
         $this->setHp($this->getHp() - $damage);
+        $this->log("Takes ".$damage.' dammage, '.$this->getHp().' hp left');
+    }
+    
+    public function getFullName()
+    {
+        return $this->getName() . ' the ' . get_class($this);
+    }
+    
+    public function log($text)
+    {
+        if ($this->getDebug())
+            echo $this->getFullName() . ' : ' . $text . '<br>';
     }
     
     public function getDamage()
@@ -93,5 +110,15 @@ class Character
     public function getAgility()
     {
         return $this->agility;
+    }
+    
+    public function setDebug($debug)
+    {
+        $this->debug = $debug;
+    }
+    
+    public function getDebug()
+    {
+        return $this->debug;
     }
 }

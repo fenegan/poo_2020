@@ -6,6 +6,7 @@ require_once('Rogue.php');
 
 $a = new Warrior();
 $b = new Mage();
+$c = new Rogue();
 
 $a->setName('newB');
 
@@ -13,8 +14,12 @@ $b->setHp(1000);
 $b->setLevel(50);
 $b->setName('xXxRoXorxXx');
 
-$a->attack($b);
-$b->attack($a);
+$c->setLevel(100);
+$c->setName('Billy');
 
-echo '<pre>';
-var_dump($a, $b);
+$a->attack($b);
+$b->attack($c);
+$c->attack($a);
+
+// echo '<pre>';
+// var_dump($a, $b, $c);
