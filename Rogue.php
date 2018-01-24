@@ -22,11 +22,13 @@ class Rogue extends Character
         
         if (rand(1, 100) <= $dodge_chance)
         {
-            $this->log("Dodges and strikes back");
-            if ($enemy)
+            if ($enemy && rand(1, 100) <= $dodge_chance)
             {
+                $this->log("Dodges and strikes back");
                 $this->attack($enemy);
             }
+            else
+                $this->log("Dodges");
         }
         else
             parent::takeDamage($damage);
