@@ -1,10 +1,11 @@
 <?php
 
-require('Character.php');
+require_once('Warrior.php');
+require_once('Mage.php');
+require_once('Rogue.php');
 
-$a = new Character();
-$b = new Character();
-$c = new Character();
+$a = new Warrior();
+$b = new Mage();
 
 $a->setName('newB');
 
