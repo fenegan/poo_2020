@@ -14,3 +14,6 @@ $b->setName('xXxRoXorxXx');
 
 $a->attack($b);
 $b->attack($a);
+
+echo '<pre>';
+var_dump($a, $b);
