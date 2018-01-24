@@ -11,10 +11,16 @@ $c = new Rogue();
 $a->setName('newB');
 $b->setName('xXxRoXorxXx');
 $c->setName('Billy');
+$c->setLevel(35);
 
-$a->attack($b);
-$b->attack($c);
-$c->attack($a);
+//$a->attack($b);
+//$b->attack($c);
+//$c->attack($a);
+
+while ($c->isAlive())
+{
+    $a->attack($c);
+}
 
 // echo '<pre>';
 // var_dump($a, $b, $c);

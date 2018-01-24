@@ -50,6 +50,8 @@ class Character
     {
         $this->setHp($this->getHp() - $damage);
         $this->log("Takes ".$damage.' damage, '.$this->getHp().' hp left');
+        if (!$this->isAlive())
+            $this->log('Died');
     }
     
     public function getFullName()
@@ -59,6 +61,7 @@ class Character
     
     public function addXp($xp)
     {
+        $this->log("Gains ".$xp." XP");
         $this->setXp($this->getXp() + $xp);
         while ($this->getXp() >= self::$xpPerLevel)
         {
@@ -69,13 +72,13 @@ class Character
     
     public function gainLevel()
     {
-        $this->log('Gained a level ! Now level '.$this->getLevel());
         $this->setLevel($this->getLevel() + 1);
+        $this->log('Gained a level ! Now level '.$this->getLevel());
     }
     
     public function getXpOnDeath()
     {
-        $this->getLevel() * 10;
+        return $this->getLevel() * 10;
     }
     
     public function isAlive()
