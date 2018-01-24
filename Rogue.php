@@ -31,6 +31,6 @@ class Rogue extends Character
                 $this->log("Dodges");
         }
         else
-            parent::takeDamage($damage);
+            parent::takeDamage($damage, $enemy);
     }
 }

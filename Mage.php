@@ -26,7 +26,7 @@ class Mage extends Character
             $this->log("Absorbs ".$damage.' damage, '.$this->getShield().' shield left');
         }
         else
-            parent::takeDamage($damage);
+            parent::takeDamage($damage, $enemy);
     }
     
     public function setShield($shield)
