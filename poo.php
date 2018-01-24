@@ -9,9 +9,12 @@ $b = new Mage();
 $c = new Rogue();
 
 $a->setName('newB');
+$a->setLevel(35);
+
 $b->setName('xXxRoXorxXx');
+$b->setLevel(25);
+
 $c->setName('Billy');
-$c->setLevel(35);
 
 //$a->attack($b);
 //$b->attack($c);
@@ -19,7 +22,7 @@ $c->setLevel(35);
 
 while ($c->isAlive())
 {
-    $a->attack($c);
+    $c->attack($c);
 }
 
 // echo '<pre>';

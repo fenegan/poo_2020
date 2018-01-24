@@ -14,4 +14,16 @@ class Warrior extends Character
     {
         return $this->getStrength() * $this->getLevel();
     }
+    
+    public function takeDamage($damage)
+    {
+        $armor = $this->getStrength() * 5;
+        $reduction = $armor / ($armor + 300);
+        $effectiveDamage = round($damage - $damage * $reduction);
+        
+        $this->setHp($this->getHp() - $effectiveDamage);
+        $this->log("Takes ".$effectiveDamage.' damage (out of '.$damage.', '.round($reduction*100).'% blocked), '.$this->getHp().' hp left');
+        if (!$this->isAlive())
+            $this->log('Died');
+    }
 }
