@@ -5,13 +5,14 @@ require_once('Mage.php');
 require_once('Rogue.php');
 
 require_once('Golem.php');
-require_once ('Lardeur.php');
+require_once('Ghom.php');
 
 $a = new Warrior();
 $b = new Mage();
 $c = new Rogue();
 
-$monster = new Lardeur(500, 30);
+$monster = new Golem(1000, 20);
+$monster = new Ghom(600, 10);
 
 $a->setName('newB');
 $a->setLevel(1);

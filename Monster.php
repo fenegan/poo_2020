@@ -34,6 +34,11 @@ abstract class Monster implements FighterInterface
         if (!$this->isAlive())
             $this->log('Died');
     }
+    protected function GainHp($damage, FighterInterface $enemy = null)
+    {
+        $this->setHp($this->getHp() + $damage);
+        $this->log("Gain ".$damage.' health, '.$this->getHp().' hp now');
+    }
     
     public function isAlive()
     {

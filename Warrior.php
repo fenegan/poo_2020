@@ -15,6 +15,7 @@ class Warrior extends Character
         return $this->getStrength() * $this->getLevel();
     }
     
+    
     public function takeDamage($damage, FighterInterface $enemy = null)
     {
         $armor = $this->getStrength() * 5;
