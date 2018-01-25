@@ -13,7 +13,6 @@ abstract class Monster implements FighterInterface
     public function __construct($hp, $damage)
     {
         $this->setDebug(true);
-        
         $this->setHp($hp);
         $this->setDamage($damage);
     }

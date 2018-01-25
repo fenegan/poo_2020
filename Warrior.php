@@ -9,12 +9,11 @@ class Warrior extends Character
         parent::__construct();
         $this->setStrength(30);
     }
-    
+
     public function getDamage()
     {
         return $this->getStrength() * $this->getLevel();
     }
-    
     
     public function takeDamage($damage, FighterInterface $enemy = null)
     {

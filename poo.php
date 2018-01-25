@@ -3,7 +3,7 @@
 require_once('Warrior.php');
 require_once('Mage.php');
 require_once('Rogue.php');
-
+require_once('Lardeur.php');
 require_once('Golem.php');
 require_once('Ghom.php');
 
