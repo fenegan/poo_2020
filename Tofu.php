@@ -10,30 +10,36 @@ class Tofu extends Monster
         $this->setName('Tofu');
         $this->setAp(6);
     }
-
+    public function coupDePatte(FighterInterface $me ,  FighterInterface $enemy){
+        if ($me->getAp() >= 3) {
+            $me->log('Attacks'. $enemy->getName().  ' with Coup de patte' );
+            $enemy->takeDamage($me->getDamage() * 5, $me);
+            $me->setAp($me->getAp() - 3);
+            $me->log('Action Points left : ' . $me->getAp());
+        } else {
+            $me->log("Not enough Action points");
+        }
+    }
+    public function coupDeTete(FighterInterface $me ,  FighterInterface $enemy){
+        if ($me->getAp() >= 2) {
+            $me->log('Attacks ' . $enemy->getName()) . ' with Coup de tête ';
+            $enemy->takeDamage($me->getDamage() * 2, $me);
+            $me->setAp($me->getAp() - 2);
+            $me->log('Action Points left : ' . $me->getAp());
+        } else {
+            $me->log("Not enough Action points");
+        }
+    }
     public function attack(FighterInterface $enemy)
     {
         if ($this->isAlive()) {
             if ($enemy->isAlive()) {
                 $success = rand(0, 1);
                 if ($success) {
-                    if ($this->getAp() >= 3) {
-                        $this->log('Attacks ' . $enemy->getName());
-                        $enemy->takeDamage($this->getDamage() * 5, $this);
-                        $this->setAp($this->getAp() - 3);
-                        $this->log('Action Points left : ' . $this->getAp());
-                    } else {
-                        $this->log("Not enough Action points");
-                    }
+                    $this->coupDePatte($this,$enemy);
                 } else {
-                    if ($this->getAp() >= 2) {
-                        $this->log('Attacks ' . $enemy->getName());
-                        $enemy->takeDamage($this->getDamage() * 2, $this);
-                        $this->setAp($this->getAp() - 2);
-                        $this->log('Action Points left : ' . $this->getAp());
-                    } else {
-                        $this->log("Not enough Action points");
-                    }}
+                    $this->coupDeTete($this,$enemy);
+                }
             } else {
                 // $this->log("Attacks an already dead enemy (".$enemy->getName().")");
             }
