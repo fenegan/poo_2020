@@ -3,10 +3,14 @@
 require_once('Warrior.php');
 require_once('Mage.php');
 require_once('Rogue.php');
-require_once ('PaladinHoly.php');
+require_once('PaladinHoly.php');
 require_once('Lardeur.php');
 require_once('Golem.php');
 require_once('Ghom.php');
+require_once('Tofu.php');
+require_once('Healer.php');
+require_once('BoumBot.php');
+require_once('AbyssWatchers.php');
 
 $a = new Warrior();
 $b = new Mage();
