@@ -181,4 +181,13 @@ abstract class Character implements FighterInterface
     {
         return $this->debug;
     }
+    public function getAp()
+    {
+        return $this->ap;
+    }
+    
+    public function setAp($ap)
+    {
+        $this->ap = $ap;
+    }
 }
