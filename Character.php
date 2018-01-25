@@ -16,6 +16,7 @@ abstract class Character implements FighterInterface
     private $agility;
     
     private $debug;
+    private $ap;
     
     public function __construct()
     {
