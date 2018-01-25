@@ -28,7 +28,7 @@ $c->setName('Billy');
 $c->setLevel(1);
 
 while ($monster->isAlive()
-        && ($a->isAlive() || $b->isAlive() || $c->isAlive()))
+       && ($a->isAlive() || $b->isAlive() || $c->isAlive()))
 {
     $a->attack($monster);
     $monster->attack($a);
