@@ -2,10 +2,8 @@
 
 require_once 'Character.php';
 
-class Healer extends Character
+class Healer extends Mage
 {
-    private $shield;
-
     public function __construct()
     {
         parent::__construct();
@@ -26,5 +24,6 @@ class Healer extends Character
     {
         $c->setHp($c->getHp() + $this->getIntelligence());
         $this->log("Heals ".$c->getName().' for '.$this->getIntelligence() . ' health points');
+        $this->log($c->getName().' now has '.$c->getHp() . ' health points');
     }
 }
