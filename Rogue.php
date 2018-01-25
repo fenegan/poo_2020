@@ -29,7 +29,7 @@ class Rogue extends Character
             $me->addXp($enemy->getXpOnDeath());
         }
     public function cutThroat(FighterInterface $me ,  FighterInterface $enemy){
-        if ($me->getAp() >= 3) {
+        if ($me->getAp() >= 4) {
             $me->log('Attacks '.$enemy->getName(). ' with Cut Throat ');
             $enemy->takeDamage($me->getDamage(), $me);
             $me->setAp($me->getAp() - 4);
