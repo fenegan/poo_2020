@@ -8,7 +8,7 @@ class Tofu extends Monster
     {
         parent::__construct($hp, $damage);
         $this->setName('Tofu');
-        $this->setPa(6);
+        $this->setAp(6);
     }
 
     public function attack(FighterInterface $enemy)
@@ -17,20 +17,20 @@ class Tofu extends Monster
             if ($enemy->isAlive()) {
                 $success = rand(0, 1);
                 if ($success) {
-                    if ($this->getPa() >= 3) {
+                    if ($this->getAp() >= 3) {
                         $this->log('Attacks ' . $enemy->getName());
                         $enemy->takeDamage($this->getDamage() * 5, $this);
-                        $this->setPa($this->getPa() - 3);
-                        $this->log('Action Points left : ' . $this->getPa());
+                        $this->setAp($this->getAp() - 3);
+                        $this->log('Action Points left : ' . $this->getAp());
                     } else {
                         $this->log("Not enough Action points");
                     }
                 } else {
-                    if ($this->getPa() >= 2) {
+                    if ($this->getAp() >= 2) {
                         $this->log('Attacks ' . $enemy->getName());
                         $enemy->takeDamage($this->getDamage() * 2, $this);
-                        $this->setPa($this->getPa() - 2);
-                        $this->log('Action Points left : ' . $this->getPa());
+                        $this->setAp($this->getAp() - 2);
+                        $this->log('Action Points left : ' . $this->getAp());
                     } else {
                         $this->log("Not enough Action points");
                     }}
