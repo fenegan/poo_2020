@@ -83,4 +83,13 @@ abstract class Monster implements FighterInterface
     {
         return $this->debug;
     }
+    public function getPa()
+    {
+        return $this->pa;
+    }
+    
+    public function setPa($pa)
+    {
+        $this->pa = $pa;
+    }
 }
