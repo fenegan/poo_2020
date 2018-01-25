@@ -37,6 +37,7 @@ $d->setLevel(1);
 
 while ($monster->isAlive()
     && ($a->isAlive() || $b->isAlive() || $c->isAlive()))
+    //&& ($a->isAlive() || $b->isAlive() || $c->isAlive()))
 {
     $a->attack($monster);
     $monster->attack($a);
@@ -49,4 +50,5 @@ while ($monster->isAlive()
 }
 
 // echo '<pre>';
+// var_dump($a, $b, $c);
 // var_dump($a, $b, $c);
