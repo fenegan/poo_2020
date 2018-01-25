@@ -7,8 +7,9 @@ abstract class Monster implements FighterInterface
     private $hp;
     private $damage;
     private $name;
-    
+
     private $debug;
+    private $ap;
     
     public function __construct($hp, $damage)
     {
@@ -82,5 +83,14 @@ abstract class Monster implements FighterInterface
     public function getDebug()
     {
         return $this->debug;
+    }
+    public function getAp()
+    {
+        return $this->ap;
+    }
+    
+    public function setAp($ap)
+    {
+        $this->ap = $ap;
     }
 }
