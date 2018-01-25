@@ -8,6 +8,7 @@ require_once('Lardeur.php');
 require_once('Golem.php');
 require_once('Ghom.php');
 require_once('Tofu.php');
+require_once ('BoumBot.php');
 
 $a = new Warrior();
 $b = new Mage();
@@ -17,6 +18,7 @@ $monster = new Lardeur(500, 30);
 //$monster = new Golem(1000, 20);
 //$monster = new Ghom(600, 10);
 //$monster = new Tofu(600, 10);
+$boum = new BoumBot(1, 1);
 
 $a->setName('newB');
 $a->setLevel(1);
