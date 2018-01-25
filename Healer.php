@@ -20,10 +20,10 @@ class Healer extends Mage
         return $this->getIntelligence();
     }
 
-    public function healAlly(Character $c)
+    public function healAlly(Character $ally)
     {
-        $c->setHp($c->getHp() + $this->getIntelligence());
-        $this->log("Heals ".$c->getName().' for '.$this->getIntelligence() . ' health points');
-        $this->log($c->getName().' now has '.$c->getHp() . ' health points');
+        $ally->setHp($ally->getHp() + $this->getIntelligence());
+        $this->log("Heals ".$ally->getName().' for '.$this->getIntelligence() . ' health points');
+        $this->log($ally->getName().' now has '.$ally->getHp() . ' health points');
     }
 }
