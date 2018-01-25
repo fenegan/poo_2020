@@ -13,7 +13,6 @@ abstract class Monster implements FighterInterface
     public function __construct($hp, $damage)
     {
         $this->setDebug(true);
-        
         $this->setHp($hp);
         $this->setDamage($damage);
     }
@@ -33,6 +32,11 @@ abstract class Monster implements FighterInterface
         $this->log("Takes ".$damage.' damage, '.$this->getHp().' hp left');
         if (!$this->isAlive())
             $this->log('Died');
+    }
+    protected function GainHp($damage, FighterInterface $enemy = null)
+    {
+        $this->setHp($this->getHp() + $damage);
+        $this->log("Gain ".$damage.' health, '.$this->getHp().' hp now');
     }
     
     public function isAlive()

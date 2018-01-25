@@ -12,7 +12,6 @@ class Mage extends Character
         $this->setIntelligence(30);
         $this->setShield(round($this->getIntelligence() * 1.5));
     }
-    
     public function getDamage()
     {
         return $this->getIntelligence() * $this->getLevel();
