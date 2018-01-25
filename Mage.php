@@ -11,6 +11,7 @@ class Mage extends Character
         parent::__construct();
         $this->setIntelligence(30);
         $this->setShield(round($this->getIntelligence() * 1.5));
+        $this->setAp(6);
     }
     public function getDamage()
     {
