@@ -18,7 +18,7 @@ class Mage extends Character
         return $this->getIntelligence() * $this->getLevel();
     }
     
-    public function takeDamage($damage, Character $enemy = null)
+    public function takeDamage($damage, FighterInterface $enemy = null)
     {
         if ($this->getShield() > 0)
         {

@@ -1,6 +1,8 @@
 <?php
 
-abstract class Character
+require_once('FighterInterface.php');
+
+abstract class Character implements FighterInterface
 {
     private static $xpPerLevel = 100;
 
@@ -30,7 +32,7 @@ abstract class Character
     
     public abstract function getDamage();
     
-    public function attack(Character $enemy)
+    public function attack(FighterInterface $enemy)
     {
         if ($this->isAlive())
         {
@@ -48,7 +50,7 @@ abstract class Character
             $this->log('Tries to attack '.$enemy->getName() . ' but is already dead');
     }
     
-    public function takeDamage($damage, Character $enemy = null)
+    public function takeDamage($damage, FighterInterface $enemy = null)
     {
         $this->setHp($this->getHp() - $damage);
         $this->log("Takes ".$damage.' damage, '.$this->getHp().' hp left');
@@ -97,7 +99,7 @@ abstract class Character
     protected function log($text)
     {
         if ($this->getDebug())
-            echo $this->getFullName() . ' : ' . $text . '<br>';
+            echo '<b>'.$this->getFullName() . ' :</b> ' . $text . '<br>';
     }
     
     public function setHp($hp)

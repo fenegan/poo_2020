@@ -15,7 +15,7 @@ class Rogue extends Character
         return $this->getAgility() * $this->getLevel();
     }
     
-    public function takeDamage($damage, Character $enemy = null)
+    public function takeDamage($damage, FighterInterface $enemy = null)
     {
         $dodge_points = $this->getAgility() * 5;
         $dodge_chance = $dodge_points / ($dodge_points + 300) * 100;
