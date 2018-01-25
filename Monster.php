@@ -7,6 +7,7 @@ abstract class Monster implements FighterInterface
     private $hp;
     private $damage;
     private $name;
+    
     private $debug;
     private $pa;
     
