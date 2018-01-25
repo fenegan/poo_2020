@@ -16,6 +16,7 @@ abstract class Character implements FighterInterface
     private $agility;
     
     private $debug;
+    private $ap;
     
     public function __construct()
     {
@@ -180,5 +181,14 @@ abstract class Character implements FighterInterface
     public function getDebug()
     {
         return $this->debug;
+    }
+    public function getAp()
+    {
+        return $this->ap;
+    }
+    
+    public function setAp($ap)
+    {
+        $this->ap = $ap;
     }
 }

@@ -8,4 +8,5 @@ interface FighterInterface
     public function getXpOnDeath();
     public function getHp();
     public function isAlive();
+    public function getAp();
 }
