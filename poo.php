@@ -42,6 +42,7 @@ while ($monster->isAlive()
     $c->attack($monster);
     $monster->attack($c);
     $d->heal($a);
+    $monster->setAp(6);
 }
 
 // echo '<pre>';
