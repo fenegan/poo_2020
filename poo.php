@@ -10,7 +10,6 @@ require_once('Ghom.php');
 require_once('Tofu.php');
 require_once('Healer.php');
 require_once('BoumBot.php');
-require_once('AbyssWatchers.php');
 
 $a = new Warrior();
 $b = new Mage();
